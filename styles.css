@@ -6,3 +6,48 @@
     margin: 0;
     box-sizing: border-box;
   }
+
+  nav {
+    height: 80px;
+    display: flex;
+  }
+
+  .nav-container{
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .logo{
+    width: 160px;
+  }
+
+  ul {
+    display: flex; /*tambien hace que se pongan lado a lado*/   
+  }
+
+  li { 
+    list-style-type: none;
+  }
+
+  .nav-link{
+    margin-left: 16px;
+    text-decoration: none;/*quitar underline*/
+    font-size: 20px;
+    color: #7342d6;
+    font-weight: bold;
+    border: 2px solid #7342d6;
+    border-radius: 4px;
+    padding: 8px;
+    transition: all 200ms ease;
+  }
+
+  .nav-link:hover{
+    border: 4px solid #7342d6;
+    text-decoration: underline;
+    font-size: 24px;
+  }
