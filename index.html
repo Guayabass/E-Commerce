@@ -9,6 +9,7 @@
     src="https://kit.fontawesome.com/573d9416cc.js"
     crossorigin="anonymous"
   ></script>
+  <script src="index.js"></script>
     <title>Library</title>
   </head>
   <body>
@@ -21,7 +22,21 @@
             <li><a href="#" class="nav-link">Contact</a></li>
             <li><a href="#" class="nav-link">Books</a></li>
           </ul>
+
+        <button class="btn-menu" onclick="openMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="menu-backdrop">
+          <button class="btn-menu btn-menu-close" onclick="closeMenu()">
+            <i class="fas fa-times"></i>
+          </button>
+          <ul class="menu-links">
+            <li class="menu-list"><a href="#" class="menu-link" onclick="closeMenu()">Home</a></li>
+            <li class="menu-list"><a href="#latest" class="menu-link" onclick="closeMenu()">Books</a></li>
+            <li class="menu-list"><a href="#footer" class="menu-link" onclick="closeMenu()">Contacts</a></li>
+          </ul>
         </div>
+      </div>
       </nav>
       <header>
         <div class="header-container">
@@ -30,7 +45,7 @@
             <h2>
               Find your dream book with <span class="purple">Library</span>
             </h2>
-            <button class="btn">Browse Books</button>
+            <a href="#features"><button class="btn">Browse Books</button></a>
           </div>
           <figure class="header-img-wrapper">
             <img src="./assets/Undraw_Books.svg" class="header-img" alt="" />
@@ -313,5 +328,23 @@
          </div>
       </section>
     </main>
+    <footer id="footer">
+      <div class="container">
+        <div class="row row-column">
+          <a href="#">
+            <figure class="footer-logo">
+              <img src="./assets/Library.svg" class="footer-logo-img" alt="">
+            </figure> 
+          </a>
+          <div class="footer-list">
+            <a href="" class="footer-link">Home</a>
+            <a href="" class="footer-link no-cursor">About</a>
+            <a href="" class="footer-link">Books</a>
+            <a href="" class="footer-link no-cursor">Contact</a>
+          </div>
+          <div class="footer-copyright">Copyright &copy; 2022 Library</div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

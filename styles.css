@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   max-width: 100vw; /*para que cubra el 100% de la pantalla activa*/
   overflow-x: hidden; /*se puede hacer scroll por los svg en el eje x con esto no*/
@@ -42,6 +46,14 @@ h2 {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
 .container {
   padding: 56px 0; /*incrementos de 8px para consistencia*/
   /*usamos padding para que no separe las secciones con un espacio en blanco*/
@@ -60,7 +72,75 @@ h2 {
   align-items: center;
 }
 
+.no-cursor {
+  cursor: not-allowed;
+}
+
 /** LANDING PAGE **/
+
+.btn-menu{
+  background-color: transparent;
+  font-size: 40px;
+  text-align: center;
+  border: none;
+  color: #7342d6;
+  display: none;
+}
+
+.menu-backdrop{
+  position: absolute; /*para que salga encima de todo*/
+  background-color: #242424;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; /*estos 4 juntos hacen todo el tamano de la pantalla*/
+  z-index: 100;/*para que el wave.svg no le salga encima*/
+  /*display: flex;*/
+  justify-content: center;
+  align-items: center;/*estos 3 centran todos los <li> en el centro del backdrop*/
+  transition: all 300ms ease;
+  visibility: hidden;
+  opacity: 0; /*estos dos es los mismo que decir display none pero sin esconderlo para poder animar*/
+}
+
+.menu-open .menu-backdrop{/*cuando el menu-open exista (con el click del boton aparezca el backdrop*/
+  display: flex; /*parea que este centrado*/
+  visibility: visible;
+  opacity: 1;
+}
+
+/*.close-menu .menu-backdrop{
+  visibility: hidden;
+  opacity: 0;
+}*/
+
+.menu-open{
+  max-height: 100vh;
+  overflow-y: hidden; /*para no dejar que se pueda scrollear*/
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-link{
+  font-size: 40px;
+  color: white;
+}
+
+.menu-list{
+  padding: 32px 0;
+}
+
+.btn-menu-close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  padding: 8px;
+  color: white;
+}
 
 nav {
   height: 80px;
@@ -184,13 +264,14 @@ button:active {
 
 .highlight-wrapper{
   display: flex;
+  flex-wrap: wrap; /*para que ponga todo abajo de cada uno en vez de horizontal*/
 }
 
 .highlight {
   padding: 24px 24px;
   width: calc(100% / 3);
   display: flex;
-  justify-content: center;
+  /*justify-content: center;*//*se quita para evitar que intente centrar todo y se suba uno sobre otro raro en pequena resolkucion*/
   align-items: center;
   flex-direction: column; /*si no display flex pone todo de lado*/
 }
@@ -294,3 +375,72 @@ button:active {
   cursor: pointer;
 }
 
+/* FOOTER */
+
+footer {
+  background-color: #242424;
+}
+
+.footer-logo{
+  display: flex;/*figure trae mas alturo o width por default entonces esto lo arregla*/
+}
+
+.footer-logo-img{
+  width: 160px;
+  filter: grayscale(1) invert(1); /*grayscale pone todo en color oscuro y invert lo hace blanco*/
+}
+
+.footer-link,
+.footer-copyright {
+  color: #fff;
+}
+
+.footer-list{
+  margin: 20px 0 24px 0;
+}
+
+.footer-link{
+  padding: 0 8px;
+}
+
+/* SMall phones, tablets, large smartphones*/
+
+@media (max-width: 768px){
+    .header-description{
+      padding: 0 24px; /*para que no se pegue en los bordes*/
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 26px;
+    }
+
+    button {
+      font-size: 18px;
+    }
+
+    .book {
+      width: 50%;
+    }
+}
+
+@media (max-width: 550px) { /*para el navbar menu*/
+  .nav-links{
+    display: none;
+  }
+
+  .btn-menu{
+    display: block;
+  }
+
+  .highlight {
+    width: 100%; /*para que el flex-wrap ponga uno en cada linea en vez de todo horizontal*/
+  }
+
+  .highlight:not(:last-child){
+    margin-bottom: 24px;
+  }
+}
