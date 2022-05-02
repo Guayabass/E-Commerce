@@ -145,6 +145,7 @@ a:hover{
 nav {
   height: 80px;
   display: flex;
+  margin-bottom: 24px;
 }
 
 .nav-container {
